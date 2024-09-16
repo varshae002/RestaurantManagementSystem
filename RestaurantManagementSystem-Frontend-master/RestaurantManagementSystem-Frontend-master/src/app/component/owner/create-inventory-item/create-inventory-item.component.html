@@ -1,0 +1,53 @@
+<br/><br/><br/><br/>
+<div class="container">
+    <h2>Create New Inventory Item</h2>
+
+    <!-- Error and Success Messages -->
+    <div *ngIf="successMessage" class="success-message">{{ successMessage }}</div>
+    <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+
+    <!-- Form to Create Inventory Item -->
+    <form (ngSubmit)="createInventoryItem()">
+        <div class="form-group">
+            <label for="itemName">Item Name</label>
+            <input type="text" id="itemName" [(ngModel)]="inventoryItem.name" name="itemName" class="form-control"
+                   placeholder="Enter Item Name" required/>
+        </div>
+
+
+        <div class="form-group">
+            <label for="quantity">Quantity</label>
+            <input type="number" id="quantity" [(ngModel)]="inventoryItem.quantity" name="quantity"
+                   class="form-control" placeholder="Enter Quantity" required/>
+        </div>
+
+        <div class="form-group">
+            <label for="restaurantId">Restaurant</label>
+            <select id="restaurantId" [(ngModel)]="selectedRestaurantId" name="restaurantId" class="form-control"
+                    required>
+                <option *ngFor="let restaurant of restaurants"
+                        [value]="restaurant.userId">{{ restaurant.firstName }} {{ restaurant.lastName }}
+                </option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="supplierId">Supplier</label>
+            <select id="supplierId" [(ngModel)]="selectedSupplierId" name="supplierId"
+                    class="form-control" required>
+                <option *ngFor="let supplier of suppliers" [value]="supplier.userId">
+                    {{ supplier.firstName }} {{ supplier.lastName }}
+                </option>
+            </select>
+        </div>
+
+        <button type="submit" class="btn btn-primary" [disabled]="loading">Create Inventory Item</button>
+    </form>
+
+    <!-- Loading Spinner -->
+    <div *ngIf="loading" class="loading-spinner">
+        <div class="spinner"></div>
+        <p>Creating inventory item...</p>
+    </div>
+</div>
+<br/><br/><br/><br/>

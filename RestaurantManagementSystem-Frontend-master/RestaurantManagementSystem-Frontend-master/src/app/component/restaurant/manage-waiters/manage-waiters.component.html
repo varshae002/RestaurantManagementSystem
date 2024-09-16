@@ -1,0 +1,49 @@
+<br/><br/><br/><br/>
+<div class="container">
+    <h2>Manage Waiters</h2>
+
+    <!-- Error Message -->
+    <div *ngIf="errorMessage" class="error-message">
+        {{ errorMessage }}
+    </div>
+
+    <!-- Loading Spinner -->
+    <div *ngIf="loading" class="loading-spinner">
+        <div class="spinner"></div>
+        <p>Loading restaurants...</p>
+    </div>
+
+    <!-- Restaurants Table -->
+    <table *ngIf="!loading && waiters.length > 0" class="restaurant-table">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Phone Number</th>
+            <th>Location</th>
+            <th>Email</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let waiter of waiters">
+            <td>{{ waiter.userId }}</td>
+            <td>{{ waiter.firstName }} {{ waiter.lastName }}</td>
+            <td>{{ waiter.phoneNumber }}</td>
+            <td>{{ waiter.address }}, {{ waiter.district }}, {{ waiter.state }}, {{ waiter.zipCode }}
+            </td>
+            <td>{{ waiter.emailId }}</td>
+            <td>
+                <button class="btn btn-edit" [routerLink]="['/restaurant/update-waiters']">Edit</button>
+                <button class="btn btn-delete" (click)="deleteWaiter(waiter.userId)">Delete</button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+    <!-- No Restaurants Message -->
+    <div *ngIf="!loading && waiters.length === 0" class="no-entries">
+        <p>No restaurants found.</p>
+    </div>
+</div>
+<br/><br/><br/><br/>

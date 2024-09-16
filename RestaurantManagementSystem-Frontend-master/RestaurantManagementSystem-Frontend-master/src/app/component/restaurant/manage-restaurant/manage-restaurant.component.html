@@ -1,0 +1,47 @@
+<br/><br/><br/><br/>
+<div class="container">
+    <h2>Manage Restaurants</h2>
+
+    <!-- Error Message -->
+    <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+
+    <!-- Loading Spinner -->
+    <div *ngIf="loading" class="loading-spinner">
+        <div class="spinner"></div>
+        <p>Loading restaurants...</p>
+    </div>
+
+    <!-- Restaurants Table -->
+    <table *ngIf="!loading && restaurants.length > 0" class="restaurant-table">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Phone Number</th>
+            <th>Location</th>
+            <th>Email</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let restaurant of restaurants">
+            <td>{{ restaurant.userId }}</td>
+            <td>{{ restaurant.firstName }} {{ restaurant.lastName }}</td>
+            <td>{{ restaurant.phoneNumber }}</td>
+            <td>{{ restaurant.address }}, {{ restaurant.district }}, {{ restaurant.state }}, {{ restaurant.zipCode }}
+            </td>
+            <td>{{ restaurant.emailId }}</td>
+            <td>
+                <button class="btn btn-edit" [routerLink]="['/restaurant/update-restaurant']">Edit</button>
+                <button class="btn btn-delete" (click)="deleteRestaurant(restaurant.userId)">Delete</button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+    <!-- No Restaurants Message -->
+    <div *ngIf="!loading && restaurants.length === 0" class="no-entries">
+        <p>No restaurants found.</p>
+    </div>
+</div>
+<br/><br/><br/><br/>

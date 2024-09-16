@@ -1,0 +1,115 @@
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+}
+
+html {
+    box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+.about-page {
+    background-color: #f9f5ff; /* Light lavender background */
+    padding: 40px 0;
+}
+
+.about-section {
+    background-color: #e1bee7; /* Soft lavender for the section */
+    color: #fff;
+    padding: 40px;
+    text-align: center;
+    border-radius: 10px;
+    margin-bottom: 30px;
+}
+
+.about-section h1 {
+    font-size: 2.8rem;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.about-section p {
+    font-size: 1.2rem;
+    color: #f4f4f4;
+}
+
+.welcome {
+    background-color: #ede7f6; /* Light lavender for welcome section */
+    padding: 60px 20px;
+    border-radius: 10px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+p {
+    font-size: 1.1rem;
+    color: #555;
+    line-height: 1.8;
+}
+
+img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.vision-list {
+    list-style-type: none;
+    padding: 0;
+    font-size: 1.1rem;
+}
+
+.vision-list li {
+    margin-bottom: 10px;
+    color: #555;
+}
+
+.button {
+    display: inline-block;
+    padding: 12px 30px;
+    background-color: #7e57c2; /* Medium lavender */
+    color: white;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    border-radius: 6px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+}
+
+.button:hover {
+    background-color: #6d3c85; /* Darker lavender for hover effect */
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    .vision-list li {
+        font-size: 1rem;
+    }
+
+    .button {
+        padding: 10px 20px;
+        font-size: 1rem;
+    }
+}

@@ -1,0 +1,11 @@
+<nav class="navbar">
+    <a class="logo" routerLink="/deliver-partner/home">Delivery Partner Dashboard</a>
+    <ul>
+        <li *ngFor="let item of navItems">
+            <a [routerLink]="item.path" [class.selected]="url === item.path" (click)="gotourl(item.path)">
+                <i [class]="item.icon"></i>
+                <span>{{ item.label }}</span>
+            </a>
+        </li>
+    </ul>
+</nav>

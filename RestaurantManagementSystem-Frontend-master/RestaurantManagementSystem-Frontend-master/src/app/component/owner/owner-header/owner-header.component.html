@@ -1,0 +1,22 @@
+<header class="header">
+    <a class="logo" routerLink="/owner/home">Owner Dashboard</a>
+    <div class="nav-items">
+        <a *ngFor="let item of navItems"
+           [routerLink]="item.path"
+           routerLinkActive="selected"
+           (click)="gotourl(item.path)">
+            <i class="{{ item.icon }}"></i>{{ item.label }}
+        </a>
+    </div>
+</header>
+<header class="header">
+    <a class="logo" routerLink="/owner/home"></a>
+    <div class="nav-items">
+        <a *ngFor="let item of navItems2"
+           [routerLink]="item.path"
+           routerLinkActive="selected"
+           (click)="gotourl(item.path)">
+            <i class="{{ item.icon }}"></i>{{ item.label }}
+        </a>
+    </div>
+</header>
